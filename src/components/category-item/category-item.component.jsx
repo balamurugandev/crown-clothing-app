@@ -17,3 +17,5 @@ const categoryItem = ({category}) => {
        
     )
 }
+
+export { categoryItem };
