@@ -18,4 +18,4 @@ const categoryItem = ({category}) => {
     )
 }
 
-export { categoryItem };
+export default categoryItem
