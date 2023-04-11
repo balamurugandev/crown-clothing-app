@@ -15,7 +15,7 @@ const categoryItem = ({category}) => {
           </div>
           </div>   
        
-    )
-}
+    );
+};
 
 export default categoryItem
