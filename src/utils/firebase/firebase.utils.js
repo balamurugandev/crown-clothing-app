@@ -25,15 +25,17 @@ const firebaseConfig = {
   // Initialize Firebase
   const firebaseApp = initializeApp(firebaseConfig);
 
-  const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
 
-  provider.setCustomParameters({
+  googleProvider.setCustomParameters({
     prompt: "select_account"
   });
 
   export const auth = getAuth();
   export const signInWithGooglePopup = () =>
-   signInWithPopup(auth, provider);
+   signInWithPopup(auth, googleProvider);
+  export const signInWithGoogleRedirect = () => 
+  signInWithRedirect(auth, googleProvider);
 
    export const db = getFirestore();
 
@@ -47,7 +49,6 @@ const firebaseConfig = {
     const {displayName, email} = userAuth;
     const createdAt = new Date();
    
-
    try {
     await setDoc(userDocRef , {
         displayName,
@@ -57,8 +58,7 @@ const firebaseConfig = {
     } catch(error) {
         console.log('error creating the user',error.message);
     }
-   } 
-
+    } 
    return userDocRef;
 
    }
